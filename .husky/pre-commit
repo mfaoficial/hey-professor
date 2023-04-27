@@ -5,7 +5,7 @@
 ./vendor/bin/phpstan;
 
 if [ $? -ne 0 ]; then
-  echo "Corrija os erros do phpstan antes de commitar";
+  echo "Corrija os erros do phpstan antes de commitar...";
   exit 1;
 fi;
 
@@ -13,7 +13,7 @@ fi;
 php artisan test --parallel;
 
 if [ $? -ne 0 ]; then
-  echo "Corrija os erros dos testes antes de commitar";
+  echo "Corrija os erros dos testes antes de commitar...";
   exit 1;
 fi;
 
