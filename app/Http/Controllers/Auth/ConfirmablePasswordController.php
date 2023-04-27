@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\{RedirectResponse, Request};
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\ValidationException;
-use Illuminate\View\View;
 
 class ConfirmablePasswordController extends Controller
 {
@@ -24,9 +24,11 @@ class ConfirmablePasswordController extends Controller
      */
     public function store(Request $request): RedirectResponse
     {
+        $data = $request->all();
+
         if (!Auth::guard('web')->validate([
             'email'    => $request->user()->email,
-            'password' => $request->password,
+            'password' => $data['password'],
         ])) {
             throw ValidationException::withMessages([
                 'password' => __('auth.password'),

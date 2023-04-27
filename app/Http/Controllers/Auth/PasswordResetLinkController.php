@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\{RedirectResponse, Request};
 use Illuminate\Support\Facades\Password;
-use Illuminate\View\View;
+use Illuminate\Contracts\View\View;
 
 class PasswordResetLinkController extends Controller
 {
